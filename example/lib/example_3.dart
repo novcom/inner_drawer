@@ -1,12 +1,5 @@
-import 'dart:math';
-
-import 'package:example/env.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_inner_drawer/inner_drawer.dart';
-
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 class ExampleThree extends StatefulWidget {
   ExampleThree({Key key}) : super(key: key);
@@ -19,19 +12,10 @@ class _ExampleThreeState extends State<ExampleThree> {
   final GlobalKey<InnerDrawerState> _innerDrawerKey =
       GlobalKey<InnerDrawerState>();
 
-  GlobalKey _keyRed = GlobalKey();
-  double _width = 10;
-
   double _borderRadius = 50;
-
-  AnimationController _animationController;
-  Animation<Color> _bkgColor;
-
-  String _title = "Three";
 
   @override
   void initState() {
-    _getwidthContainer();
     myFocusNode = FocusNode();
     myFocusNode2 = FocusNode();
     super.initState();
@@ -45,19 +29,6 @@ class _ExampleThreeState extends State<ExampleThree> {
   }
 
   Color currentColor = Colors.black54;
-
-  void _getwidthContainer() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final keyContext = _keyRed.currentContext;
-      if (keyContext != null) {
-        final RenderBox box = keyContext.findRenderObject();
-        final size = box.size;
-        setState(() {
-          _width = size.width;
-        });
-      }
-    });
-  }
 
   FocusNode myFocusNode;
   FocusNode myFocusNode2;

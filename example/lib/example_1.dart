@@ -1,22 +1,21 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_inner_drawer/inner_drawer.dart';
 import 'package:provider/provider.dart';
 
 import 'children/left_child_1.dart';
-import 'notifier/drawer_notifier.dart';
 import 'children/right_child_1.dart';
+import 'notifier/drawer_notifier.dart';
 import 'scaffolds/scaffolds_1.dart';
 
 class ExampleOne extends StatelessWidget {
   final GlobalKey<InnerDrawerState> _innerDrawerKey =
       GlobalKey<InnerDrawerState>();
 
-  String _title = "One";
+  final Color pickerColor = Color(0xff443a49);
+  final Color currentColor = Colors.black54;
+  final ValueChanged<Color> onColorChanged;
 
-  Color pickerColor = Color(0xff443a49);
-  Color currentColor = Colors.black54;
-  ValueChanged<Color> onColorChanged;
+  ExampleOne({this.onColorChanged});
 
   @override
   Widget build(BuildContext context) {

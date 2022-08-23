@@ -7,7 +7,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
 
 /// Signature for the callback that's called when a [InnerDrawer] is
 /// opened or closed.
@@ -62,7 +61,6 @@ class InnerDrawer extends StatefulWidget {
       this.innerDrawerCallback,
       this.onDragUpdate})
       : assert(leftChild != null || rightChild != null),
-        assert(scaffold != null),
         super(key: key);
 
   /// Left child
@@ -85,7 +83,7 @@ class InnerDrawer extends StatefulWidget {
   /// On false it leaves the width at 100% of the screen
   final bool proportionalChildArea;
 
-  /// edge radius when opening the scaffold - (defalut 0)
+  /// edge radius when opening the scaffold - (default 0)
   final double borderRadius;
 
   /// Closes the open scaffold
@@ -143,7 +141,7 @@ class InnerDrawerState extends State<InnerDrawer>
 
   double _initWidth = _kWidth;
   Orientation _orientation = Orientation.portrait;
-  InnerDrawerDirection? _position;
+  late InnerDrawerDirection _position;
 
   @override
   void initState() {
@@ -252,14 +250,11 @@ class InnerDrawerState extends State<InnerDrawer>
 
   /// get width of screen after initState
   void _updateWidth() {
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       final RenderBox? box =
           _drawerKey.currentContext!.findRenderObject() as RenderBox?;
       //final RenderBox box = context.findRenderObject();
-      if (box != null &&
-          box.hasSize &&
-          box.size != null &&
-          box.size.width > 300)
+      if (box != null && box.hasSize && box.size.width > 300)
         setState(() {
           _initWidth = box.size.width;
         });
@@ -369,7 +364,6 @@ class InnerDrawerState extends State<InnerDrawer>
       case InnerDrawerDirection.end:
         return AlignmentDirectional.centerStart;
     }
-    return null;
   }
 
   /// Inner Alignment
@@ -380,7 +374,6 @@ class InnerDrawerState extends State<InnerDrawer>
       case InnerDrawerDirection.end:
         return AlignmentDirectional.centerEnd;
     }
-    return null;
   }
 
   /// returns the left or right animation type based on InnerDrawerDirection
@@ -464,8 +457,7 @@ class InnerDrawerState extends State<InnerDrawer>
       );
 
     // Vertical translate
-    if (widget.offset != null &&
-        (widget.offset.top > 0 || widget.offset.bottom > 0)) {
+    if (widget.offset.top > 0 || widget.offset.bottom > 0) {
       final double translateY = MediaQuery.of(context).size.height *
           (widget.offset.top > 0 ? -widget.offset.top : widget.offset.bottom);
       container = Transform.translate(
@@ -542,7 +534,6 @@ class InnerDrawerState extends State<InnerDrawer>
 
   /// Trigger Area
   Widget? _trigger(AlignmentDirectional alignment, Widget? child) {
-    assert(alignment != null);
     final bool drawerIsStart = _position == InnerDrawerDirection.start;
     final EdgeInsets padding = MediaQuery.of(context).padding;
     double dragAreaWidth = drawerIsStart ? padding.left : padding.right;

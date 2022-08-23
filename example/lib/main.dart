@@ -140,13 +140,12 @@ class _MainAppState extends State<MainApp> with SingleTickerProviderStateMixin {
     switch (example) {
       case Example.one:
         return ExampleOne();
-        break;
       case Example.two:
         return ExampleTwo();
-        break;
       case Example.three:
         return ExampleThree();
-        break;
+      default:
+        return ExampleOne();
     }
   }
 

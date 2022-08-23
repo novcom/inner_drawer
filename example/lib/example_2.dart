@@ -1,10 +1,5 @@
-import 'package:example/env.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_inner_drawer/inner_drawer.dart';
-
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 class ExampleTwo extends StatefulWidget {
   ExampleTwo({Key key}) : super(key: key);
@@ -17,12 +12,7 @@ class _ExampleTwoState extends State<ExampleTwo> {
   final GlobalKey<InnerDrawerState> _innerDrawerKey =
       GlobalKey<InnerDrawerState>();
 
-  GlobalKey _keyRed = GlobalKey();
-  double _width = 10;
-
-  bool _onTapToClose = false;
   bool _swipe = true;
-  bool _tapScaffold = true;
   InnerDrawerAnimation _animationType = InnerDrawerAnimation.static;
   bool _proportionalChildArea = true;
   double _horizontalOffset = 0.4;
@@ -31,14 +21,8 @@ class _ExampleTwoState extends State<ExampleTwo> {
   double _scale = 0.9;
   double _borderRadius = 50;
 
-  AnimationController _animationController;
-  Animation<Color> _bkgColor;
-
-  String _title = "Two";
-
   @override
   void initState() {
-    _getwidthContainer();
     super.initState();
   }
 
@@ -48,19 +32,6 @@ class _ExampleTwoState extends State<ExampleTwo> {
   }
 
   Color currentColor = Colors.black54;
-
-  void _getwidthContainer() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final keyContext = _keyRed.currentContext;
-      if (keyContext != null) {
-        final RenderBox box = keyContext.findRenderObject();
-        final size = box.size;
-        setState(() {
-          _width = size.width;
-        });
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -228,8 +199,8 @@ class _ExampleTwoState extends State<ExampleTwo> {
                         SliderTheme(
                           data: Theme.of(context).sliderTheme.copyWith(
                                 valueIndicatorTextStyle: Theme.of(context)
-                                    .accentTextTheme
-                                    .body2
+                                    .textTheme
+                                    .bodyText2
                                     .copyWith(color: Colors.white),
                               ),
                           child: Slider(
@@ -317,8 +288,8 @@ class _ExampleTwoState extends State<ExampleTwo> {
                         SliderTheme(
                           data: Theme.of(context).sliderTheme.copyWith(
                                 valueIndicatorTextStyle: Theme.of(context)
-                                    .accentTextTheme
-                                    .body2
+                                    .textTheme
+                                    .bodyText2
                                     .copyWith(color: Colors.white),
                               ),
                           child: Slider(
@@ -359,8 +330,8 @@ class _ExampleTwoState extends State<ExampleTwo> {
                         SliderTheme(
                           data: Theme.of(context).sliderTheme.copyWith(
                                 valueIndicatorTextStyle: Theme.of(context)
-                                    .accentTextTheme
-                                    .body2
+                                    .textTheme
+                                    .bodyText2
                                     .copyWith(color: Colors.white),
                               ),
                           child: Slider(
@@ -398,8 +369,8 @@ class _ExampleTwoState extends State<ExampleTwo> {
                         SliderTheme(
                           data: Theme.of(context).sliderTheme.copyWith(
                                 valueIndicatorTextStyle: Theme.of(context)
-                                    .accentTextTheme
-                                    .body2
+                                    .textTheme
+                                    .bodyText2
                                     .copyWith(color: Colors.white),
                               ),
                           child: Slider(

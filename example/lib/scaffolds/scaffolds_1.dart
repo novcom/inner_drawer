@@ -5,7 +5,6 @@ import 'package:flutter_inner_drawer/inner_drawer.dart';
 import 'package:provider/provider.dart';
 
 class ScaffoldDrawer extends StatelessWidget {
-  Color pickerColor;
   final GlobalKey<InnerDrawerState> innerDrawerKey;
 
   ScaffoldDrawer({this.innerDrawerKey});
@@ -15,7 +14,7 @@ class ScaffoldDrawer extends StatelessWidget {
     print("scaffold 1");
 
     final drawer = Provider.of<DrawerNotifier>(context, listen: true);
-    pickerColor = drawer.colorTransition;
+    var pickerColor = drawer.colorTransition;
 
     return Container(
         decoration: BoxDecoration(
@@ -188,8 +187,8 @@ class ScaffoldDrawer extends StatelessWidget {
                           SliderTheme(
                             data: Theme.of(context).sliderTheme.copyWith(
                                   valueIndicatorTextStyle: Theme.of(context)
-                                      .accentTextTheme
-                                      .body2
+                                      .textTheme
+                                      .bodyText2
                                       .copyWith(color: Colors.white),
                                 ),
                             child: Slider(
