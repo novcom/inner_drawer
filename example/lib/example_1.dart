@@ -11,11 +11,11 @@ class ExampleOne extends StatelessWidget {
   final GlobalKey<InnerDrawerState> _innerDrawerKey =
       GlobalKey<InnerDrawerState>();
 
-  final Color pickerColor = Color(0xff443a49);
+  final Color pickerColor = const Color(0xff443a49);
   final Color currentColor = Colors.black54;
   final ValueChanged<Color> onColorChanged;
 
-  ExampleOne({this.onColorChanged});
+  ExampleOne({Key key, this.onColorChanged}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class ExampleOne extends StatelessWidget {
           context.select((DrawerNotifier value) => value.animationType),
       rightAnimationType: InnerDrawerAnimation.linear,
 
-      leftChild: LeftChild(),
+      leftChild: const LeftChild(),
 
       rightChild: RightChild(innerDrawerKey: _innerDrawerKey),
 

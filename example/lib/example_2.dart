@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inner_drawer/inner_drawer.dart';
 
 class ExampleTwo extends StatefulWidget {
-  ExampleTwo({Key key}) : super(key: key);
+  const ExampleTwo({Key key}) : super(key: key);
 
   @override
   _ExampleTwoState createState() => _ExampleTwoState();
@@ -12,7 +12,7 @@ class _ExampleTwoState extends State<ExampleTwo> {
   final GlobalKey<InnerDrawerState> _innerDrawerKey =
       GlobalKey<InnerDrawerState>();
 
-  bool _swipe = true;
+  final bool _swipe = true;
   InnerDrawerAnimation _animationType = InnerDrawerAnimation.static;
   bool _proportionalChildArea = true;
   double _horizontalOffset = 0.4;
@@ -45,7 +45,7 @@ class _ExampleTwoState extends State<ExampleTwo> {
           left: _horizontalOffset),
       scale: IDOffset.horizontal(_scale),
       borderRadius: _borderRadius,
-      duration: Duration(milliseconds: 11200),
+      duration: const Duration(milliseconds: 11200),
       swipe: _swipe,
       proportionalChildArea: _proportionalChildArea,
       //backgroundColor: Colors.red,
@@ -56,7 +56,7 @@ class _ExampleTwoState extends State<ExampleTwo> {
           color: Theme.of(context).backgroundColor,
           child: Center(
             child: Container(
-              child: Text(
+              child: const Text(
                 "Left Child",
                 style: TextStyle(fontSize: 18),
               ),
@@ -66,7 +66,7 @@ class _ExampleTwoState extends State<ExampleTwo> {
           color: Theme.of(context).backgroundColor,
           child: Center(
             child: Container(
-              child: Text(
+              child: const Text(
                 "Right Child",
                 style: TextStyle(fontSize: 18),
               ),
@@ -74,8 +74,8 @@ class _ExampleTwoState extends State<ExampleTwo> {
           )),
       scaffold: Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(vertical: 30),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.symmetric(vertical: 30),
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomLeft,
@@ -98,7 +98,7 @@ class _ExampleTwoState extends State<ExampleTwo> {
                     GestureDetector(
                       child: Row(
                         children: <Widget>[
-                          Text('Static'),
+                          const Text('Static'),
                           Checkbox(
                               activeColor: Colors.black,
                               value:
@@ -129,7 +129,7 @@ class _ExampleTwoState extends State<ExampleTwo> {
                                   _animationType = InnerDrawerAnimation.linear;
                                 });
                               }),
-                          Text('Linear'),
+                          const Text('Linear'),
                         ],
                       ),
                       onTap: () {
@@ -152,7 +152,7 @@ class _ExampleTwoState extends State<ExampleTwo> {
                                       InnerDrawerAnimation.quadratic;
                                 });
                               }),
-                          Text('Quadratic'),
+                          const Text('Quadratic'),
                         ],
                       ),
                       onTap: () {
@@ -163,7 +163,7 @@ class _ExampleTwoState extends State<ExampleTwo> {
                     ),
                   ],
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.all(10),
                 ),
                 GestureDetector(
@@ -178,7 +178,7 @@ class _ExampleTwoState extends State<ExampleTwo> {
                               _proportionalChildArea = !_proportionalChildArea;
                             });
                           }),
-                      Text('ProportionalChildArea'),
+                      const Text('ProportionalChildArea'),
                     ],
                   ),
                   onTap: () {
@@ -187,12 +187,12 @@ class _ExampleTwoState extends State<ExampleTwo> {
                     });
                   },
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.all(10),
                 ),
                 Column(
                   children: <Widget>[
-                    Text('Horizontal Offset'),
+                    const Text('Horizontal Offset'),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -229,12 +229,12 @@ class _ExampleTwoState extends State<ExampleTwo> {
                     ),
                   ],
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.all(10),
                 ),
                 Column(
                   children: <Widget>[
-                    Text('Vertical Offset'),
+                    const Text('Vertical Offset'),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -250,7 +250,7 @@ class _ExampleTwoState extends State<ExampleTwo> {
                                       _topBottom = true;
                                     });
                                   }),
-                              Text('Top'),
+                              const Text('Top'),
                             ],
                           ),
                           onTap: () {
@@ -271,7 +271,7 @@ class _ExampleTwoState extends State<ExampleTwo> {
                                       _topBottom = false;
                                     });
                                   }),
-                              Text('Bottom'),
+                              const Text('Bottom'),
                             ],
                           ),
                           onTap: () {
@@ -318,12 +318,12 @@ class _ExampleTwoState extends State<ExampleTwo> {
                     ),
                   ],
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.all(10),
                 ),
                 Column(
                   children: <Widget>[
-                    Text('Scale'),
+                    const Text('Scale'),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -357,12 +357,12 @@ class _ExampleTwoState extends State<ExampleTwo> {
                     ),
                   ],
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.all(10),
                 ),
                 Column(
                   children: <Widget>[
-                    Text('Border Radius'),
+                    const Text('Border Radius'),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[

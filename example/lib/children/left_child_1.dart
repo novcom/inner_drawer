@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class LeftChild extends StatelessWidget {
-  LeftChild({Key key}) : super(key: key);
+  const LeftChild({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class LeftChild extends StatelessWidget {
           child: Stack(
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.only(left: 30),
+                padding: const EdgeInsets.only(left: 30),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -45,38 +45,38 @@ class LeftChild extends StatelessWidget {
                     Column(
                       children: <Widget>[
                         Container(
-                          margin: EdgeInsets.only(left: 10, bottom: 15),
+                          margin: const EdgeInsets.only(left: 10, bottom: 15),
                           width: 80,
                           child: ClipRRect(
+                            borderRadius: BorderRadius.circular(50),
                             child: Image.network(
                               "https://img.icons8.com/officel/2x/user.png",
                             ),
-                            borderRadius: BorderRadius.circular(50),
                           ),
                         ),
-                        Text(
+                        const Text(
                           "User",
                           style: TextStyle(color: Colors.white, fontSize: 18),
                         )
                       ],
                       //mainAxisAlignment: MainAxisAlignment.center,
                     ),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.all(10),
                     ),
                     ListTile(
                       onTap: () => print("Dashboard"),
-                      title: Text(
+                      title: const Text(
                         "Dashboard",
                         style: TextStyle(color: Colors.white, fontSize: 14),
                       ),
-                      leading: Icon(
+                      leading: const Icon(
                         Icons.dashboard,
                         color: Colors.white,
                         size: 22,
                       ),
                     ),
-                    ListTile(
+                    const ListTile(
                       title: Text(
                         "Nametag",
                         style: TextStyle(fontSize: 14),
@@ -86,7 +86,7 @@ class LeftChild extends StatelessWidget {
                         size: 22,
                       ),
                     ),
-                    ListTile(
+                    const ListTile(
                       title: Text(
                         "Favorite",
                         style: TextStyle(fontSize: 14),
@@ -96,7 +96,7 @@ class LeftChild extends StatelessWidget {
                         size: 22,
                       ),
                     ),
-                    ListTile(
+                    const ListTile(
                       title: Text(
                         "Close Friends",
                         style: TextStyle(fontSize: 14),
@@ -106,7 +106,7 @@ class LeftChild extends StatelessWidget {
                         size: 22,
                       ),
                     ),
-                    ListTile(
+                    const ListTile(
                       title: Text(
                         "Suggested People",
                         style: TextStyle(fontSize: 14),
@@ -123,12 +123,13 @@ class LeftChild extends StatelessWidget {
                 bottom: 0,
                 child: Container(
                   alignment: Alignment.bottomLeft,
-                  margin: EdgeInsets.only(top: 50),
-                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                  margin: const EdgeInsets.only(top: 50),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
                   width: double.maxFinite,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
+                    children: const <Widget>[
                       Icon(
                         Icons.all_out,
                         size: 18,
