@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_inner_drawer/inner_drawer.dart';
 import 'package:provider/provider.dart';
 
 import 'example_1.dart';
@@ -23,7 +24,15 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blueGrey,
         backgroundColor: Colors.white,
       ),
-      home: const MainApp(),
+      home: InnerDrawer(
+        scaffold: Container(),
+        leftChild: const SizedBox(
+          child: Text('Child'),
+        ),
+        rightChild: const SizedBox(
+          child: Text('Child'),
+        ),
+      ),
     );
   }
 }
