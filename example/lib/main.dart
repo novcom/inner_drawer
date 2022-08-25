@@ -9,10 +9,12 @@ import 'notifier/drawer_notifier.dart';
 
 void main() => runApp(ChangeNotifierProvider(
       create: (context) => DrawerNotifier(),
-      child: MyApp(),
+      child: const MyApp(),
     ));
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blueGrey,
         backgroundColor: Colors.white,
       ),
-      home: MainApp(),
+      home: const MainApp(),
     );
   }
 }
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
 enum Example { one, two, three }
 
 class MainApp extends StatefulWidget {
-  MainApp({Key key}) : super(key: key);
+  const MainApp({Key key}) : super(key: key);
 
   @override
   _MainAppState createState() => _MainAppState();
@@ -41,8 +43,8 @@ class _MainAppState extends State<MainApp> with SingleTickerProviderStateMixin {
   Animation<Color> _buttonColor;
   Animation<double> _animateIcon;
   Animation<double> _translateButton;
-  Curve _curve = Curves.easeOut;
-  double _fabHeight = 56.0;
+  final Curve _curve = Curves.easeOut;
+  final double _fabHeight = 56.0;
 
   Example _currentExample = Example.one;
 
@@ -50,17 +52,17 @@ class _MainAppState extends State<MainApp> with SingleTickerProviderStateMixin {
   initState() {
     super.initState();
 
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       //systemNavigationBarColor: Colors.blue,
       statusBarColor: Colors.transparent,
       //statusBarBrightness: Brightness.dark,
     ));
 
-    _animationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 500))
-          ..addListener(() {
-            setState(() {});
-          });
+    _animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 500))
+      ..addListener(() {
+        setState(() {});
+      });
     _animateIcon =
         Tween<double>(begin: 0.0, end: 1.0).animate(_animationController);
     _buttonColor = ColorTween(
@@ -68,7 +70,7 @@ class _MainAppState extends State<MainApp> with SingleTickerProviderStateMixin {
       end: Colors.red,
     ).animate(CurvedAnimation(
       parent: _animationController,
-      curve: Interval(
+      curve: const Interval(
         0.00,
         1.00,
         curve: Curves.linear,
@@ -99,7 +101,7 @@ class _MainAppState extends State<MainApp> with SingleTickerProviderStateMixin {
       children: <Widget>[
         _switchWidget(_currentExample),
         Container(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           alignment: Alignment.bottomRight,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -141,9 +143,9 @@ class _MainAppState extends State<MainApp> with SingleTickerProviderStateMixin {
       case Example.one:
         return ExampleOne();
       case Example.two:
-        return ExampleTwo();
+        return const ExampleTwo();
       case Example.three:
-        return ExampleThree();
+        return const ExampleThree();
       default:
         return ExampleOne();
     }
@@ -184,7 +186,7 @@ class _MainAppState extends State<MainApp> with SingleTickerProviderStateMixin {
   }
 
   Widget _toggle() {
-    return new Container(
+    return SizedBox(
       child: FloatingActionButton(
         elevation: 1.5,
         backgroundColor: Colors.white,
@@ -201,10 +203,11 @@ class _MainAppState extends State<MainApp> with SingleTickerProviderStateMixin {
 
   void _animate() {
     if (Navigator.of(context).canPop()) Navigator.of(context).pop();
-    if (!isOpened)
+    if (!isOpened) {
       _animationController.forward();
-    else
+    } else {
       _animationController.reverse();
+    }
     isOpened = !isOpened;
   }
 }

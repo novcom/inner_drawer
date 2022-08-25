@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inner_drawer/inner_drawer.dart';
 
 class ExampleThree extends StatefulWidget {
-  ExampleThree({Key key}) : super(key: key);
+  const ExampleThree({Key key}) : super(key: key);
 
   @override
   _ExampleThreeState createState() => _ExampleThreeState();
@@ -12,7 +12,7 @@ class _ExampleThreeState extends State<ExampleThree> {
   final GlobalKey<InnerDrawerState> _innerDrawerKey =
       GlobalKey<InnerDrawerState>();
 
-  double _borderRadius = 50;
+  final double _borderRadius = 50;
 
   @override
   void initState() {
@@ -45,11 +45,11 @@ class _ExampleThreeState extends State<ExampleThree> {
       leftChild: Material(
           color: Theme.of(context).backgroundColor,
           child: Center(
-            child: Container(
+            child: SizedBox(
                 child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(
+                const Text(
                   "Left Child",
                   style: TextStyle(fontSize: 18),
                 ),
@@ -67,7 +67,7 @@ class _ExampleThreeState extends State<ExampleThree> {
           )),
       scaffold: Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(vertical: 30),
+        padding: const EdgeInsets.symmetric(vertical: 30),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -84,13 +84,13 @@ class _ExampleThreeState extends State<ExampleThree> {
             color: Colors.transparent,
             child: Container(
                 height: double.infinity,
-                padding: EdgeInsets.all(15),
+                padding: const EdgeInsets.all(15),
                 child: Column(
                   children: <Widget>[
                     TextField(
                       focusNode: myFocusNode,
                     ),
-                    TextField(
+                    const TextField(
                         //  focusNode: myFocusNode,
                         ),
                   ],

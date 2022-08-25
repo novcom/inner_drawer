@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 class ScaffoldDrawer extends StatelessWidget {
   final GlobalKey<InnerDrawerState> innerDrawerKey;
 
-  ScaffoldDrawer({this.innerDrawerKey});
+  const ScaffoldDrawer({Key key, this.innerDrawerKey}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,15 +39,15 @@ class ScaffoldDrawer extends StatelessWidget {
           child: DefaultTextStyle(
             style: TextStyle(color: Colors.grey[100]),
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.all(10),
                   ),
-                  Text(
+                  const Text(
                     "Animation Type",
                     style: TextStyle(fontWeight: FontWeight.w500),
                   ),
@@ -57,7 +57,7 @@ class ScaffoldDrawer extends StatelessWidget {
                       GestureDetector(
                         child: Row(
                           children: <Widget>[
-                            Text('Static'),
+                            const Text('Static'),
                             Checkbox(
                                 activeColor: Colors.black,
                                 value: drawer.animationType ==
@@ -84,7 +84,7 @@ class ScaffoldDrawer extends StatelessWidget {
                                   drawer.setAnimationType(
                                       InnerDrawerAnimation.linear);
                                 }),
-                            Text('Linear'),
+                            const Text('Linear'),
                           ],
                         ),
                         onTap: () {
@@ -103,7 +103,7 @@ class ScaffoldDrawer extends StatelessWidget {
                                   drawer.setAnimationType(
                                       InnerDrawerAnimation.quadratic);
                                 }),
-                            Text('Quadratic'),
+                            const Text('Quadratic'),
                           ],
                         ),
                         onTap: () {
@@ -113,7 +113,7 @@ class ScaffoldDrawer extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.all(10),
                   ),
                   Row(
@@ -129,7 +129,7 @@ class ScaffoldDrawer extends StatelessWidget {
                                 onChanged: (a) {
                                   drawer.setSwipe(!drawer.swipe);
                                 }),
-                            Text('Swipe'),
+                            const Text('Swipe'),
                           ],
                         ),
                         onTap: () {
@@ -146,7 +146,7 @@ class ScaffoldDrawer extends StatelessWidget {
                                 onChanged: (a) {
                                   drawer.setTapScaffold(!drawer.tapScaffold);
                                 }),
-                            Text('TapScaffoldEnabled'),
+                            const Text('TapScaffoldEnabled'),
                           ],
                         ),
                         onTap: () {
@@ -155,7 +155,7 @@ class ScaffoldDrawer extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.all(10),
                   ),
                   GestureDetector(
@@ -168,19 +168,19 @@ class ScaffoldDrawer extends StatelessWidget {
                             onChanged: (a) {
                               drawer.setOnTapToClose(!drawer.onTapToClose);
                             }),
-                        Text('OnTap To Close'),
+                        const Text('OnTap To Close'),
                       ],
                     ),
                     onTap: () {
                       drawer.setOnTapToClose(!drawer.onTapToClose);
                     },
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.all(10),
                   ),
                   Column(
                     children: <Widget>[
-                      Text('Offset'),
+                      const Text('Offset'),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -215,7 +215,7 @@ class ScaffoldDrawer extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Padding(padding: EdgeInsets.all(10)),
+                  const Padding(padding: EdgeInsets.all(10)),
                   TextButton(
                     child: Text(
                       "Set Color Transition",
@@ -240,7 +240,7 @@ class ScaffoldDrawer extends StatelessWidget {
                             ),
                             actions: <Widget>[
                               TextButton(
-                                child: Text('Set'),
+                                child: const Text('Set'),
                                 onPressed: () {
                                   drawer.setColorTransition(pickerColor);
                                   Navigator.of(context).pop();
@@ -252,9 +252,9 @@ class ScaffoldDrawer extends StatelessWidget {
                       );
                     },
                   ),
-                  Padding(padding: EdgeInsets.all(25)),
+                  const Padding(padding: EdgeInsets.all(25)),
                   ElevatedButton(
-                    child: Text("open"),
+                    child: const Text("open"),
                     onPressed: () {
                       // direction is optional
                       // if not set, the last direction will be used

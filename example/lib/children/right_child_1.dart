@@ -5,7 +5,7 @@ import '../env.dart';
 class RightChild extends StatelessWidget {
   final bool _position = true;
   final GlobalKey<InnerDrawerState> innerDrawerKey;
-  RightChild({this.innerDrawerKey, Key key}) : super(key: key);
+  const RightChild({this.innerDrawerKey, Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,20 +27,20 @@ class RightChild extends StatelessWidget {
                   ListView(
                     children: <Widget>[
                       Padding(
-                          padding:
-                              EdgeInsets.only(top: 12, bottom: 4, left: 15),
+                          padding: const EdgeInsets.only(
+                              top: 12, bottom: 4, left: 15),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               Row(
-                                children: <Widget>[
+                                children: const <Widget>[
                                   SizedBox(
                                     width: 15,
                                     height: 15,
                                     child: CircleAvatar(
+                                      backgroundColor: Colors.grey,
                                       child: Icon(Icons.person,
                                           color: Colors.white, size: 12),
-                                      backgroundColor: Colors.grey,
                                     ),
                                   ),
                                   Text(
@@ -52,7 +52,8 @@ class RightChild extends StatelessWidget {
                                 ],
                               ),
                               Padding(
-                                padding: EdgeInsets.only(top: 2, right: 25),
+                                padding:
+                                    const EdgeInsets.only(top: 2, right: 25),
                                 child: GestureDetector(
                                   child: Icon(
                                     _position
@@ -67,43 +68,43 @@ class RightChild extends StatelessWidget {
                               ),
                             ],
                           )),
-                      Divider(),
-                      ListTile(
+                      const Divider(),
+                      const ListTile(
                         title: Text("Statistics"),
                         leading: Icon(Icons.show_chart),
                       ),
-                      ListTile(
+                      const ListTile(
                         title: Text("Activity"),
                         leading: Icon(Icons.access_time),
                       ),
-                      ListTile(
+                      const ListTile(
                         title: Text("Nametag"),
                         leading: Icon(Icons.rounded_corner),
                       ),
-                      ListTile(
+                      const ListTile(
                         title: Text("Favorite"),
                         leading: Icon(Icons.bookmark_border),
                       ),
-                      ListTile(
+                      const ListTile(
                         title: Text("Close Friends"),
                         leading: Icon(Icons.list),
                       ),
-                      ListTile(
+                      const ListTile(
                         title: Text("Suggested People"),
                         leading: Icon(Icons.person_add),
                       ),
-                      ListTile(
+                      const ListTile(
                         title: Text("Open Facebook"),
                         leading: Icon(
-                          Env.facebook_icon,
+                          Env.facebookIcon,
                           size: 18,
                         ),
                       ),
                       Container(
                         alignment: Alignment.bottomLeft,
-                        margin: EdgeInsets.only(top: 50),
-                        padding:
-                            EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                        margin: const EdgeInsets.only(top: 50),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 15, horizontal: 25),
                         //width: double.maxFinite,
                         decoration: BoxDecoration(
                             //color: Colors.grey,
@@ -113,7 +114,7 @@ class RightChild extends StatelessWidget {
                         ))),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
+                          children: const <Widget>[
                             Icon(
                               Icons.settings,
                               size: 18,
