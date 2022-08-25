@@ -5,10 +5,10 @@ class ExampleThree extends StatefulWidget {
   const ExampleThree({Key key}) : super(key: key);
 
   @override
-  _ExampleThreeState createState() => _ExampleThreeState();
+  ExampleThreeState createState() => ExampleThreeState();
 }
 
-class _ExampleThreeState extends State<ExampleThree> {
+class ExampleThreeState extends State<ExampleThree> {
   final GlobalKey<InnerDrawerState> _innerDrawerKey =
       GlobalKey<InnerDrawerState>();
 

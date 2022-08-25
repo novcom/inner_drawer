@@ -43,10 +43,10 @@ class MainApp extends StatefulWidget {
   const MainApp({Key key}) : super(key: key);
 
   @override
-  _MainAppState createState() => _MainAppState();
+  MainAppState createState() => MainAppState();
 }
 
-class _MainAppState extends State<MainApp> with SingleTickerProviderStateMixin {
+class MainAppState extends State<MainApp> with SingleTickerProviderStateMixin {
   bool isOpened = false;
   AnimationController _animationController;
   Animation<Color> _buttonColor;

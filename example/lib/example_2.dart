@@ -5,10 +5,10 @@ class ExampleTwo extends StatefulWidget {
   const ExampleTwo({Key key}) : super(key: key);
 
   @override
-  _ExampleTwoState createState() => _ExampleTwoState();
+  ExampleTwoState createState() => ExampleTwoState();
 }
 
-class _ExampleTwoState extends State<ExampleTwo> {
+class ExampleTwoState extends State<ExampleTwo> {
   final GlobalKey<InnerDrawerState> _innerDrawerKey =
       GlobalKey<InnerDrawerState>();
 
@@ -54,9 +54,9 @@ class _ExampleTwoState extends State<ExampleTwo> {
       rightAnimationType: _animationType,
       leftChild: Material(
           color: Theme.of(context).backgroundColor,
-          child: Center(
-            child: Container(
-              child: const Text(
+          child: const Center(
+            child: SizedBox(
+              child: Text(
                 "Left Child",
                 style: TextStyle(fontSize: 18),
               ),
@@ -64,9 +64,9 @@ class _ExampleTwoState extends State<ExampleTwo> {
           )),
       rightChild: Material(
           color: Theme.of(context).backgroundColor,
-          child: Center(
-            child: Container(
-              child: const Text(
+          child: const Center(
+            child: SizedBox(
+              child: Text(
                 "Right Child",
                 style: TextStyle(fontSize: 18),
               ),

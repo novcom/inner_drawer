@@ -17,7 +17,8 @@ void main() {
         size: tWidgetSize,
       );
     });
-    testWidgets('Should show left child when swiped from left to the middle of screen',
+    testWidgets(
+        'Should show left child when swiped from left to the middle of screen',
         (tester) async {
       runApp(
         const MaterialApp(
@@ -38,7 +39,7 @@ void main() {
 
       await tester.drag(
         find.byType(InnerDrawer),
-         Offset(tWidgetSize.width / 2, 0),
+        Offset(tWidgetSize.width / 2, 0),
       );
       await tester.pumpAndSettle();
       expect(find.text('Left Child').hitTestable(), findsOneWidget);
