@@ -3,9 +3,8 @@ import 'package:flutter_inner_drawer/inner_drawer.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
-// This test is hear to visualize the behavior of the InnerDrawer widget
-// as we cannot run integration test on the package.
-// The test is not meant to be a real test it's just to aid Widget Test
+// An example app integration test when your app uses the swipe drawer widget in its UI. It might help you to programmatically navigate to other widgets you want to test. 
+// The drawer package has its own suite of tests to assert correct behaviour, so you do not have to test the drawer behavior.
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
