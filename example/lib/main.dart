@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_inner_drawer/inner_drawer.dart';
 import 'package:provider/provider.dart';
 
 import 'example_1.dart';
@@ -23,7 +24,15 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blueGrey,
         backgroundColor: Colors.white,
       ),
-      home: const MainApp(),
+      home: InnerDrawer(
+        scaffold: Container(),
+        leftChild: const SizedBox(
+          child: Text('Child'),
+        ),
+        rightChild: const SizedBox(
+          child: Text('Child'),
+        ),
+      ),
     );
   }
 }
@@ -34,10 +43,10 @@ class MainApp extends StatefulWidget {
   const MainApp({Key key}) : super(key: key);
 
   @override
-  _MainAppState createState() => _MainAppState();
+  MainAppState createState() => MainAppState();
 }
 
-class _MainAppState extends State<MainApp> with SingleTickerProviderStateMixin {
+class MainAppState extends State<MainApp> with SingleTickerProviderStateMixin {
   bool isOpened = false;
   AnimationController _animationController;
   Animation<Color> _buttonColor;

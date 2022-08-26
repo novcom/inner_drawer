@@ -1,7 +1,6 @@
 # flutter_inner_drawer
 [![pub package](https://img.shields.io/badge/pub-1.0.0+1-orange.svg)](https://pub.dartlang.org/packages/flutter_inner_drawer)
 [![Awesome Flutter](https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square)](https://github.com/Solido/awesome-flutter#drawers)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/dnag88)
 
 
 Inner Drawer is an easy way to create an internal side section (left/right) where you can insert a list menu or other.
@@ -128,10 +127,6 @@ import 'package:flutter_inner_drawer/inner_drawer.dart';
 |`_innerDrawerKey.currentState.open`|*Current State of GlobalKey<InnerDrawerState>(check example) - OPEN*||
 |`_innerDrawerKey.currentState.close`|*Current State of GlobalKey<InnerDrawerState>(check example) - CLOSE*||
 |`_innerDrawerKey.currentState.toggle`|*Current State of GlobalKey<InnerDrawerState>(check example) - OPEN or CLOSE*||
-
-## Donate
-It takes time to carry on this project. If you found it useful or learned something from the source code please consider the idea of donating 5, 20, 50 € or whatever you can to support the project. 
-- [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/dnag88)
 
 ## Issues
 If you encounter problems, open an issue. Pull request are also welcome.
