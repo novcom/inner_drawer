@@ -198,8 +198,8 @@ class _MainAppState extends State<MainApp> with SingleTickerProviderStateMixin {
 ```
 
 ## DEMO
-![Demo 1](https://github.com/Dn-a/flutter_inner_drawer/blob/master/assets/img/example5.1.gif)
-![Demo 2](https://github.com/Dn-a/flutter_inner_drawer/blob/master/assets/img/example5.3.gif)
+![Demo 1](https://github.com/onessheep/inner_drawer/blob/master/assets/img/example5.1.gif)
+![Demo 2](https://github.com/onessheep/inner_drawer/blob/master/assets/img/example5.3.gif)
 
 ## Other
 This project is a starting point for a Flutter application.
