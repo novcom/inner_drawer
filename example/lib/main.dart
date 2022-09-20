@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_inner_drawer/inner_drawer.dart';
+import 'package:inner_drawer/inner_drawer.dart';
 import 'package:provider/provider.dart';
 
 import 'example_1.dart';

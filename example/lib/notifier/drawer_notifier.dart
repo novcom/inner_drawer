@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_inner_drawer/inner_drawer.dart';
+import 'package:inner_drawer/inner_drawer.dart';
 
 class DrawerNotifier extends ChangeNotifier {
   double swipeOffset = 0;

@@ -1,7 +1,7 @@
 import 'package:example/notifier/drawer_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
-import 'package:flutter_inner_drawer/inner_drawer.dart';
+import 'package:inner_drawer/inner_drawer.dart';
 import 'package:provider/provider.dart';
 
 class ScaffoldDrawer extends StatelessWidget {
