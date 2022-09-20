@@ -15,10 +15,10 @@ dependencies:
 <div align="center">
   <table><tr>
  <td style="text-align:center">
-  <img width="250px"  src="https://github.com/onesheep/inner_drawer/raw/master/assets/img/example5.1.gif?" />
+  <img width="250px"  src="https://github.com/onesheep/inner_drawer/raw/main/assets/img/example5.1.gif?" />
  </td>
  <td style="text-align:center">
-   <img width="250px"  src="https://github.com/onesheep/inner_drawer/raw/master/assets/img/example5.3.gif?" />
+   <img width="250px"  src="https://github.com/onesheep/inner_drawer/raw/main/assets/img/example5.3.gif?" />
  </td>
  </tr></table>
 </div>
