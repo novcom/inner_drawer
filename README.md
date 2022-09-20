@@ -1,7 +1,7 @@
-# flutter_inner_drawer
-[![pub package](https://img.shields.io/badge/pub-1.0.0+1-orange.svg)](https://pub.dartlang.org/packages/flutter_inner_drawer)
-[![Awesome Flutter](https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square)](https://github.com/Solido/awesome-flutter#drawers)
+# inner_drawer
+[![pub package](https://img.shields.io/badge/pub-1.0.0+1-orange.svg)](https://pub.dartlang.org/packages/inner_drawer)
 
+> This is a fork from [flutter_inner_drawer](https://pub.dartlang.org/packages/futter_inner_drawer)
 
 Inner Drawer is an easy way to create an internal side section (left/right) where you can insert a list menu or other.
 
@@ -9,7 +9,7 @@ Inner Drawer is an easy way to create an internal side section (left/right) wher
 Add this to your package's pubspec.yaml file:
 ```dart
 dependencies:
-  flutter_inner_drawer: "^1.0.0+1"
+  inner_drawer: "^1.0.0+1"
 ```
 ## Demo
 <div align="center">
@@ -38,13 +38,13 @@ import 'package:flutter_inner_drawer/inner_drawer.dart';
             key: _innerDrawerKey,
             onTapClose: true, // default false
             swipe: true, // default true            
-            colorTransitionChild: Color.red, // default Color.black54
-            colorTransitionScaffold: Color.black54, // default Color.black54
+            colorTransitionChild: Colors.red, // default Color.black54
+            colorTransitionScaffold: Colors.black54, // default Color.black54
             
             //When setting the vertical offset, be sure to use only top or bottom
-            offset: IDOffset.only(bottom: 0.05, right: 0.0, left: 0.0),
+            offset: const IDOffset.only(bottom: 0.05, right: 0.0, left: 0.0),
             
-            scale: IDOffset.horizontal( 0.8 ), // set the offset in both directions
+            scale: const IDOffset.horizontal( 0.8 ), // set the offset in both directions
             
             proportionalChildArea : true, // default true
             borderRadius: 50, // default 0
@@ -53,7 +53,7 @@ import 'package:flutter_inner_drawer/inner_drawer.dart';
             backgroundDecoration: BoxDecoration(color: Colors.red ), // default  Theme.of(context).backgroundColor
             
             //when a pointer that is in contact with the screen and moves to the right or left            
-            onDragUpdate: (double val, InnerDrawerDirection direction) {
+            onDragUpdate: (double val, InnerDrawerDirection? direction) {
                 // return values between 1 and 0
                 print(val);
                 // check if the swipe is to the right or to the left
