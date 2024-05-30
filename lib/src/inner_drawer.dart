@@ -149,12 +149,9 @@ class InnerDrawer extends StatefulWidget {
 }
 
 /// The [InnerDrawerState] for a [InnerDrawer].
-class InnerDrawerState extends State<InnerDrawer>
-    with SingleTickerProviderStateMixin {
-  ColorTween _colorTransitionChild =
-      ColorTween(begin: Colors.transparent, end: Colors.black54);
-  ColorTween _colorTransitionScaffold =
-      ColorTween(begin: Colors.black54, end: Colors.transparent);
+class InnerDrawerState extends State<InnerDrawer> with SingleTickerProviderStateMixin {
+  ColorTween _colorTransitionChild = ColorTween(begin: Colors.transparent, end: Colors.black54);
+  ColorTween _colorTransitionScaffold = ColorTween(begin: Colors.black54, end: Colors.transparent);
 
   double _initWidth = _kWidth;
   Orientation _orientation = Orientation.portrait;
@@ -162,9 +159,7 @@ class InnerDrawerState extends State<InnerDrawer>
 
   @override
   void initState() {
-    _position = _leftChild != null
-        ? InnerDrawerDirection.start
-        : InnerDrawerDirection.end;
+    _position = _leftChild != null ? InnerDrawerDirection.start : InnerDrawerDirection.end;
 
     _controller = AnimationController(
       value: 1,
@@ -292,9 +287,7 @@ class InnerDrawerState extends State<InnerDrawer>
       _position = InnerDrawerDirection.end;
     }
 
-    var offset = _position == InnerDrawerDirection.start
-        ? widget.offset.left
-        : widget.offset.right;
+    var offset = _position == InnerDrawerDirection.start ? widget.offset.left : widget.offset.right;
 
     var ee = 1.0;
     if (offset <= 0.2) {
@@ -305,9 +298,7 @@ class InnerDrawerState extends State<InnerDrawer>
       ee = 1.05;
     }
 
-    offset = 1 -
-        (pow(offset / ee, 1 / 2)
-            as double); //(num.parse(pow(offset/2,1/3).toStringAsFixed(1)));
+    offset = 1 - (pow(offset / ee, 1 / 2) as double); //(num.parse(pow(offset/2,1/3).toStringAsFixed(1)));
 
     switch (_position) {
       case InnerDrawerDirection.end:
@@ -335,8 +326,7 @@ class InnerDrawerState extends State<InnerDrawer>
   void _settle(DragEndDetails details) {
     if (_controller.isDismissed) return;
     if (details.velocity.pixelsPerSecond.dx.abs() >= _kMinFlingVelocity) {
-      var visualVelocity =
-          (details.velocity.pixelsPerSecond.dx + _velocity) / _width;
+      var visualVelocity = (details.velocity.pixelsPerSecond.dx + _velocity) / _width;
 
       switch (_position) {
         case InnerDrawerDirection.end:
@@ -405,23 +395,17 @@ class InnerDrawerState extends State<InnerDrawer>
 
   /// returns the left or right animation type based on InnerDrawerDirection
   InnerDrawerAnimation get _animationType {
-    return _position == InnerDrawerDirection.start
-        ? widget.leftAnimationType
-        : widget.rightAnimationType;
+    return _position == InnerDrawerDirection.start ? widget.leftAnimationType : widget.rightAnimationType;
   }
 
   /// returns the left or right scale based on InnerDrawerDirection
   double get _scaleFactor {
-    return _position == InnerDrawerDirection.start
-        ? widget.scale.left
-        : widget.scale.right;
+    return _position == InnerDrawerDirection.start ? widget.scale.left : widget.scale.right;
   }
 
   /// returns the left or right offset based on InnerDrawerDirection
   double get _offset {
-    return _position == InnerDrawerDirection.start
-        ? widget.offset.left
-        : widget.offset.right;
+    return _position == InnerDrawerDirection.start ? widget.offset.left : widget.offset.right;
   }
 
   /// return width with specific offset
@@ -455,9 +439,7 @@ class InnerDrawerState extends State<InnerDrawer>
     final invC = _invisibleCover();
 
     final Widget scaffoldChild = Stack(
-      children: <Widget?>[widget.scaffold, if (invC != null) invC else null]
-          .whereType<Widget>()
-          .toList(),
+      children: <Widget?>[widget.scaffold, if (invC != null) invC else null].whereType<Widget>().toList(),
     );
 
     Widget container = DecoratedBox(
@@ -494,8 +476,7 @@ class InnerDrawerState extends State<InnerDrawer>
 
     // Vertical translate
     if (widget.offset.top > 0 || widget.offset.bottom > 0) {
-      final translateY = MediaQuery.of(context).size.height *
-          (widget.offset.top > 0 ? -widget.offset.top : widget.offset.bottom);
+      final translateY = MediaQuery.of(context).size.height * (widget.offset.top > 0 ? -widget.offset.top : widget.offset.bottom);
       container = Transform.translate(
         offset: Offset(0, translateY * (1 - _controller.value)),
         child: container,
@@ -537,8 +518,7 @@ class InnerDrawerState extends State<InnerDrawer>
 
   /// return widget with specific animation
   Widget _animatedChild() {
-    var child =
-        _position == InnerDrawerDirection.start ? _leftChild : _rightChild;
+    var child = _position == InnerDrawerDirection.start ? _leftChild : _rightChild;
     if (_swipeChild) {
       child = GestureDetector(
         onHorizontalDragUpdate: _move,
@@ -581,9 +561,7 @@ class InnerDrawerState extends State<InnerDrawer>
     }
     dragAreaWidth = max(dragAreaWidth, _kEdgeDragWidth);
 
-    if (_controller.status == AnimationStatus.completed &&
-        _swipe &&
-        child != null) {
+    if (_controller.status == AnimationStatus.completed && _swipe && child != null) {
       return Align(
         alignment: alignment,
         child: Container(color: Colors.transparent, width: dragAreaWidth),
@@ -598,8 +576,7 @@ class InnerDrawerState extends State<InnerDrawer>
     //assert(debugCheckHasMaterialLocalizations(context));
 
     /// initialize the correct width
-    if (_initWidth == 400 ||
-        MediaQuery.of(context).orientation != _orientation) {
+    if (_initWidth == 400 || MediaQuery.of(context).orientation != _orientation) {
       _updateWidth();
       _orientation = MediaQuery.of(context).orientation;
     }
@@ -613,7 +590,7 @@ class InnerDrawerState extends State<InnerDrawer>
     return DecoratedBox(
       decoration: widget.backgroundDecoration ??
           BoxDecoration(
-            color: Theme.of(context).backgroundColor,
+            color: Theme.of(context).colorScheme.surface,
           ),
       child: Stack(
         alignment: _drawerInnerAlignment,
@@ -631,10 +608,7 @@ class InnerDrawerState extends State<InnerDrawer>
                 children: <Widget?>[
                   ///Gradient
                   Container(
-                    width: _controller.value == 0 ||
-                            _animationType == InnerDrawerAnimation.linear
-                        ? 0
-                        : null,
+                    width: _controller.value == 0 || _animationType == InnerDrawerAnimation.linear ? 0 : null,
                     color: _colorTransitionChild.evaluate(_controller),
                   ),
                   Align(
@@ -680,14 +654,7 @@ class IDOffset {
     this.right = 0.0,
     this.bottom = 0.0,
   })  : assert(
-          top >= 0.0 &&
-              top <= 1.0 &&
-              left >= 0.0 &&
-              left <= 1.0 &&
-              right >= 0.0 &&
-              right <= 1.0 &&
-              bottom >= 0.0 &&
-              bottom <= 1.0,
+          top >= 0.0 && top <= 1.0 && left >= 0.0 && left <= 1.0 && right >= 0.0 && right <= 1.0 && bottom >= 0.0 && bottom <= 1.0,
           'Offset(top: $top, left: $left, right: $right, bottom: $bottom) must'
           ' be between 0.0 and 1.0.',
         ),
